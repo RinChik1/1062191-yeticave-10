@@ -42,6 +42,18 @@ $catalog = [
     ]
 ];
 
+function price_diff($input){
+    
+    $numb = ceil($input);
+    
+    if ($numb >= 1000){
+        $numb = number_format ($numb, 0, ',', " " );
+        $numb .= " ₽";
+    }
+    
+    return $numb;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -118,7 +130,7 @@ $catalog = [
                     <div class="lot__state">
                         <div class="lot__rate">
                             <span class="lot__amount">Стартовая цена</span>
-                            <span class="lot__cost"><?=$item['price']; ?><b class="rub">р</b></span>
+                            <span class="lot__cost"><?=$pricer = price_diff($item['price']); ?></span>
                         </div>
                         <div class="lot__timer timer">
                             12:23
