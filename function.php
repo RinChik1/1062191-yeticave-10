@@ -15,4 +15,17 @@ function esc($ctlg) {
 
 	return $image;
 }
+function end_time($etm) {
+    
+    $check_time = strtotime($etm) - time();
+    if ($check_time <= 0){
+        return false;
+    }
+    $hours = floor($check_time/3600);
+    $minutes = floor(($check_time%3600)/60);
+    
+    return $hours .":". $minutes;
+}
+
+
 ?>

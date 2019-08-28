@@ -29,9 +29,15 @@
                         <span class="lot__amount">Стартовая цена</span>
                         <span class="lot__cost"><?=$pricer = price_diff($item['price']); ?></span>
                     </div>
-                    <div class="lot__timer timer">
-                        12:23
+                    <?php if ($hours > 0):?>
+                    <div class="lot__timer timer timer--finishing">
+                       <?=$times = end_time($item['date']); ?>
                     </div>
+                    <?php else:?>
+                    <div class="lot__timer timer">
+                       <?=$times = end_time($item['date']); ?>
+                    </div>
+                    <?php endif;?>
                 </div>
             </div>
         </li>
